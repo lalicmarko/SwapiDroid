@@ -1,0 +1,25 @@
+{
+  "people": [
+    {
+      "name": "Luke Skywalker"
+    },
+    {
+      "name": "Darth Vader"
+    },
+    {
+      "name": "Bobba Fett"
+    },
+    {
+      "name": "Yoda"
+    },
+    {
+      "name": "Baby Yoda"
+    },
+    {
+      "name": "Obi-Wan Kenobi"
+    },
+    {
+      "name": "Princess Leia"
+    }
+  ]
+}
