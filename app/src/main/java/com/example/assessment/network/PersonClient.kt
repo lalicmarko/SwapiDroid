@@ -3,11 +3,11 @@ package com.example.assessment.network
 import com.example.assessment.model.dto.PersonResponseDto
 import javax.inject.Inject
 
-class PeopleClient @Inject constructor(
-    private val peopleService: PeopleService
+class PersonClient @Inject constructor(
+    private val personService: PersonService
 ) {
 
     suspend fun fetchPeople(): PersonResponseDto {
-        return peopleService.fetchPersonList()
+        return personService.fetchPersonList()
     }
 }

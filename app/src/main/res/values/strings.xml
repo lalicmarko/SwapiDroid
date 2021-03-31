@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">AndroidAssignment</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="details_title">Details of %s</string>
+    <string name="main_title">Marko Lalic - Android Assessment</string>
 </resources>

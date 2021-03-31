@@ -1,6 +1,6 @@
 package com.example.assessment.di
 
-import com.example.assessment.network.PeopleClient
+import com.example.assessment.network.PersonClient
 import com.example.assessment.persistance.PersonDao
 import com.example.assessment.repository.PersonRepository
 import dagger.Module
@@ -16,7 +16,7 @@ object RepositoryModule {
     @Provides
     @ViewModelScoped
     fun provideMainRepository(
-        peopleClient: PeopleClient,
+        peopleClient: PersonClient,
         personDao: PersonDao
     ): PersonRepository {
         return PersonRepository(peopleClient, personDao)

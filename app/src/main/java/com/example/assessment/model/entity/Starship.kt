@@ -5,12 +5,13 @@ import androidx.room.PrimaryKey
 import com.example.assessment.model.ui.StarWarsEntityUI
 
 @Entity
-data class Person(
+data class Starship(
     @PrimaryKey(autoGenerate = true)
     val id: Long?,
     val name: String,
-    val mass: String,
-    val height: String
+    val model: String,
+    val manufacturer: String,
+    val starshipClass: String
 ) : StarWarsEntityUI, BaseModelItem {
 
     override fun getTitle(): String {
@@ -18,7 +19,7 @@ data class Person(
     }
 
     override fun getShortInfo(): String {
-        return "This ${getType()}'s name is $name, his weight is $mass kg, his height is $height cm."
+        return "This is a ${getType()}, manufactured by $manufacturer, model name: $model, class = $starshipClass"
     }
 
     override fun getStarWarsEntityId(): Long {

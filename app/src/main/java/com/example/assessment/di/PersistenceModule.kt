@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.room.Room
 import com.example.assessment.persistance.AppDatabase
 import com.example.assessment.persistance.PersonDao
+import com.example.assessment.persistance.StarshipDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,6 +30,12 @@ object PersistenceModule {
     @Singleton
     fun providePersonDao(appDatabase: AppDatabase): PersonDao {
         return appDatabase.personDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideStarshipDao(appDatabase: AppDatabase): StarshipDao {
+        return appDatabase.starshipDao()
     }
 
     // here other dao interfaces can be provided

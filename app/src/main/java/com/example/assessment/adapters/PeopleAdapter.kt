@@ -6,29 +6,29 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assessment.databinding.ItemMovieBinding
-import com.example.assessment.model.ui.PersonUI
+import com.example.assessment.model.ui.StarWarsEntityUI
 
 /**
- * [RecyclerView.Adapter] that can display a [PersonUI].
+ * [RecyclerView.Adapter] that can display a [StarWarsEntityUI].
  */
-class PeopleAdapter : ListAdapter<PersonUI, PeopleAdapter.MovieVH>(DiffUtilCallback) {
+class PeopleAdapter : ListAdapter<StarWarsEntityUI, PeopleAdapter.PersonVH>(diffUtil) {
 
-    var onItemClickedCallback: ((PersonUI) -> Unit)? = null
+    var onItemClickedCallback: ((StarWarsEntityUI) -> Unit)? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieVH {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonVH {
         val layoutInflater = LayoutInflater.from(parent.context)
         val itemBinding = ItemMovieBinding.inflate(layoutInflater, parent, false)
-        return MovieVH(itemBinding)
+        return PersonVH(itemBinding)
     }
 
-    override fun onBindViewHolder(holder: MovieVH, position: Int) {
+    override fun onBindViewHolder(holder: PersonVH, position: Int) {
         holder.bind(currentList[position])
     }
 
-    inner class MovieVH(private val binding: ItemMovieBinding) :
+    inner class PersonVH(private val binding: ItemMovieBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        private var boundItem: PersonUI? = null
+        private var boundItem: StarWarsEntityUI? = null
 
         init {
             itemView.setOnClickListener {
@@ -38,20 +38,24 @@ class PeopleAdapter : ListAdapter<PersonUI, PeopleAdapter.MovieVH>(DiffUtilCallb
             }
         }
 
-        fun bind(person: PersonUI) {
-            boundItem = person
-            binding.content.text = person.getTitle()
-            binding.type.text = person.getType()
+        fun bind(starWarsEntity: StarWarsEntityUI) {
+            boundItem = starWarsEntity
+            binding.content.text = starWarsEntity.getTitle()
+            binding.type.text = starWarsEntity.getType()
+        }
+    }
+
+    companion object {
+        val diffUtil = object : DiffUtil.ItemCallback<StarWarsEntityUI>() {
+            override fun areItemsTheSame(oldItem: StarWarsEntityUI, newItem: StarWarsEntityUI): Boolean {
+                return oldItem.getStarWarsEntityId() == newItem.getStarWarsEntityId()
+            }
+
+            override fun areContentsTheSame(oldItem: StarWarsEntityUI, newItem: StarWarsEntityUI): Boolean {
+                return oldItem.getTitle() == newItem.getTitle()
+            }
         }
     }
 }
 
-object DiffUtilCallback : DiffUtil.ItemCallback<PersonUI>() {
-    override fun areItemsTheSame(oldItem: PersonUI, newItem: PersonUI): Boolean {
-        return oldItem.getMovieId() == newItem.getMovieId()
-    }
 
-    override fun areContentsTheSame(oldItem: PersonUI, newItem: PersonUI): Boolean {
-        return oldItem.getTitle() == newItem.getTitle()
-    }
-}
