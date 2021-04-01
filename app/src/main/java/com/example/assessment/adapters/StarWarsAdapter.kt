@@ -47,6 +47,8 @@ class StarWarsAdapter : ListAdapter<StarWarsEntityUI, StarWarsAdapter.StarWarsIt
             binding.type.text = starWarsEntity.getType()
             if (starWarsEntity is Starship) {
                 binding.statusView.background = ColorDrawable(Color.BLUE)
+            } else {
+                binding.statusView.background = ColorDrawable(Color.RED)
             }
         }
     }
