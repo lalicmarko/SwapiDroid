@@ -1,11 +1,14 @@
 package com.example.assessment.adapters
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.assessment.databinding.ItemStarwarsBinding
+import com.example.assessment.model.entity.Starship
 import com.example.assessment.model.ui.StarWarsEntityUI
 
 /**
@@ -42,6 +45,9 @@ class StarWarsAdapter : ListAdapter<StarWarsEntityUI, StarWarsAdapter.StarWarsIt
             boundItem = starWarsEntity
             binding.content.text = starWarsEntity.getTitle()
             binding.type.text = starWarsEntity.getType()
+            if (starWarsEntity is Starship) {
+                binding.statusView.background = ColorDrawable(Color.BLUE)
+            }
         }
     }
 

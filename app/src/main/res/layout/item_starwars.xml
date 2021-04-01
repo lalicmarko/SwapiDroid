@@ -26,8 +26,19 @@
         android:textAppearance="?attr/textAppearanceListItem"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/status_view"
         app:layout_constraintStart_toEndOf="@id/type"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@sample/people.json/people/name" />
+
+    <View
+        android:id="@+id/status_view"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

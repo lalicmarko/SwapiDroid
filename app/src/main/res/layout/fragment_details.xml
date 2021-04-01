@@ -31,6 +31,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@id/separator" />
+        app:layout_constraintTop_toBottomOf="@id/separator"
+        tools:text="@sample/description.json/description/body" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
