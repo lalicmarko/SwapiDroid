@@ -5,27 +5,27 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.assessment.databinding.ItemMovieBinding
+import com.example.assessment.databinding.ItemStarwarsBinding
 import com.example.assessment.model.ui.StarWarsEntityUI
 
 /**
  * [RecyclerView.Adapter] that can display a [StarWarsEntityUI].
  */
-class PeopleAdapter : ListAdapter<StarWarsEntityUI, PeopleAdapter.PersonVH>(diffUtil) {
+class StarWarsAdapter : ListAdapter<StarWarsEntityUI, StarWarsAdapter.StarWarsItemVH>(diffUtil) {
 
     var onItemClickedCallback: ((StarWarsEntityUI) -> Unit)? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonVH {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StarWarsItemVH {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val itemBinding = ItemMovieBinding.inflate(layoutInflater, parent, false)
-        return PersonVH(itemBinding)
+        val itemBinding = ItemStarwarsBinding.inflate(layoutInflater, parent, false)
+        return StarWarsItemVH(itemBinding)
     }
 
-    override fun onBindViewHolder(holder: PersonVH, position: Int) {
+    override fun onBindViewHolder(holder: StarWarsItemVH, position: Int) {
         holder.bind(currentList[position])
     }
 
-    inner class PersonVH(private val binding: ItemMovieBinding) :
+    inner class StarWarsItemVH(private val binding: ItemStarwarsBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         private var boundItem: StarWarsEntityUI? = null
@@ -47,11 +47,17 @@ class PeopleAdapter : ListAdapter<StarWarsEntityUI, PeopleAdapter.PersonVH>(diff
 
     companion object {
         val diffUtil = object : DiffUtil.ItemCallback<StarWarsEntityUI>() {
-            override fun areItemsTheSame(oldItem: StarWarsEntityUI, newItem: StarWarsEntityUI): Boolean {
+            override fun areItemsTheSame(
+                oldItem: StarWarsEntityUI,
+                newItem: StarWarsEntityUI
+            ): Boolean {
                 return oldItem.getStarWarsEntityId() == newItem.getStarWarsEntityId()
             }
 
-            override fun areContentsTheSame(oldItem: StarWarsEntityUI, newItem: StarWarsEntityUI): Boolean {
+            override fun areContentsTheSame(
+                oldItem: StarWarsEntityUI,
+                newItem: StarWarsEntityUI
+            ): Boolean {
                 return oldItem.getTitle() == newItem.getTitle()
             }
         }

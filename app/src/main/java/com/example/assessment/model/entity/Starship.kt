@@ -4,6 +4,9 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.assessment.model.ui.StarWarsEntityUI
 
+/**
+ * StarWars starship entity
+ */
 @Entity
 data class Starship(
     @PrimaryKey(autoGenerate = true)

@@ -14,6 +14,9 @@ import com.example.assessment.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 
+/**
+ * A fragment representing a details of selected StarWars item.
+ */
 @AndroidEntryPoint
 class DetailsFragment : Fragment() {
 

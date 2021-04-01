@@ -19,6 +19,9 @@ class MainViewModel @Inject constructor(
     private val starshipRepository: StarshipRepository
 ) : ViewModel() {
 
+    /**
+     * Combined flows of [starshipsStateFlow] and [peopleStateFlow]
+     */
     private val selectedStarWarsEntity = MutableStateFlow<StarWarsEntityUI?>(null)
 
     private val starshipsStateFlow = MutableStateFlow<List<StarWarsEntityUI>>(emptyList())

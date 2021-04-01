@@ -13,7 +13,7 @@
         app:layoutManager="LinearLayoutManager"
         tools:context=".fragments.ListFragment"
         tools:itemCount="14"
-        tools:listitem="@layout/item_movie" />
+        tools:listitem="@layout/item_starwars" />
 
     <ProgressBar
         android:id="@+id/loading_progress"
